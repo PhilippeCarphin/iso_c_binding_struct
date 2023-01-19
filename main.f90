@@ -18,7 +18,6 @@ program main
     ierr = c_print_tile(t)
 
     write(*,*) "=================================="
-
     g%NI = 1000
     g%NJ = 2000
     g%NK = 8
@@ -26,7 +25,10 @@ program main
     g%HI = 1
     g%HJ = 2
 
-    g%NbTiles = 1
+    ierr = allocate_tiles(g, 1)
+    ierr = set_tile(g, 0, t)
+
+    g%Id = "This Tile ID"
 
     ierr = c_print_grid(g)
 
