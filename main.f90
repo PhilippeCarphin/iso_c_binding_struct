@@ -3,6 +3,9 @@ program main
     use grid
 
     integer :: ierr
+    integer :: len, i
+    character(kind=C_CHAR), dimension(13) :: tmp_id
+    character(kind=C_CHAR, len=13) :: tmp_id_2
     TYPE(TTile) :: t
     TYPE(TGrid) :: g
 
@@ -28,7 +31,17 @@ program main
     ierr = allocate_tiles(g, 1)
     ierr = set_tile(g, 0, t)
 
-    g%Id = "This Tile ID"
+    tmp_id(:) = "Bonjour"
+    write(*,*) "tmp_id = ", tmp_id
+
+    tmp_id_2 = "This Grid Id"
+    write(*,*) "tmp_id_2 = ", tmp_id_2
+
+    len = len_trim(tmp_id_2)
+    do i = 1,len
+        g%Id(i:i) = tmp_id_2(i:i)
+    enddo
+    g%Id(len+1:len+1) = c_null_char
 
     ierr = c_print_grid(g)
 
