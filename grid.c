@@ -10,3 +10,12 @@ int print_tile(TTile *t){
     return 0;
 }
 
+int print_grid(TGrid *g){
+    fprintf(stderr, "Grid at %p\n", g);
+    fprintf(stderr, "    Id = %.13s\n", g->Id);
+    fprintf(stderr, "    (NI,NJ,NK) = (%d,%d,%d)\n", g->NI, g->NJ, g->NK);
+    fprintf(stderr, "    (HI,HJ) = (%d,%d)\n", g->HI, g->HJ);
+    fprintf(stderr, "    NbTiles = %d\n", g->NbTiles);
+    return 0;
+}
+

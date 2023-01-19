@@ -4,6 +4,7 @@ program main
 
     integer :: ierr
     TYPE(TTile) :: t
+    TYPE(TGrid) :: g
 
     t%I0 = 1
     t%I1 = 2
@@ -15,5 +16,19 @@ program main
     t%HJ = 1
 
     ierr = c_print_tile(t)
+
+    write(*,*) "=================================="
+
+    g%NI = 1000
+    g%NJ = 2000
+    g%NK = 8
+
+    g%HI = 1
+    g%HJ = 2
+
+    g%NbTiles = 1
+
+    ierr = c_print_grid(g)
+
 
 end program

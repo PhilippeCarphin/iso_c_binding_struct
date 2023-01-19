@@ -8,3 +8,12 @@ typedef struct TTile {
    int J0,J1;                             ///< Limits in Y within global grid
    int HI,HJ;                             ///< Halo width in X and Y
 } TTile;
+
+typedef struct TGrid {
+   char     Id[14];                       ///< Grid identifier
+   int      NI,NJ,NK;                     ///< Global grid dimensions
+   int      HI,HJ;                        ///< Global grid halo width
+   int      NbTiles;                      ///< Number of tiles
+   TTile    *tiles;
+} TGrid;
+
