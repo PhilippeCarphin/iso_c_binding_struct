@@ -7,7 +7,7 @@ project(struct_iso_c_binding C Fortran)
 # include(ec_init)
 set(CMAKE_Fortran_PREPROCESS TRUE)
 
-add_executable(main grid.f90 grid.c main.f90)
+add_executable(main grid.f90 grid.c main.f90 tgrid_mod.f90)
 
 add_custom_target(
     check

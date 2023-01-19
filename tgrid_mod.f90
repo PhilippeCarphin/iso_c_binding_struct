@@ -1,3 +1,7 @@
+module tgrid_mod
+
+      use, intrinsic :: iso_c_binding
+      implicit none
 
       TYPE, BIND(C) :: TTile
           INTEGER(C_INT) I0, I1
@@ -12,3 +16,5 @@
           integer(C_INT)                 :: NbTiles
           type(C_PTR)                    :: Tiles
       END TYPE
+
+end module
